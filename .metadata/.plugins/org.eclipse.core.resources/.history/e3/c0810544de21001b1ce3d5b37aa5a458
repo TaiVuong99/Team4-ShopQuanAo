@@ -1,0 +1,13 @@
+package clothesshop.service;
+
+import clothesshop.model.Customers;
+
+public class CustomersServiceImpl implements CustomersService{
+
+	@Override
+	public Customers getCustomer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

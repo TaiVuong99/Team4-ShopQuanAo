@@ -1,0 +1,5 @@
+package clothesshop.dao;
+
+public class ColorsDAOImpl {
+
+}

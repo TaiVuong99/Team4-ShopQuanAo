@@ -1,0 +1,5 @@
+package clothesshop.service;
+
+public interface ColorsService {
+
+}

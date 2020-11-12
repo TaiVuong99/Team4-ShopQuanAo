@@ -1,0 +1,27 @@
+
+				function showModal(a) {
+					$.ajax({
+						type : "GET",
+						contentType : "application/json",
+						url : "getProductById",
+						data : {
+							id : a
+						},
+						dataType : 'json',
+						timeout : 100000,
+						success : function(data) {
+							$('.js-modal1').addClass('show-modal1');
+							$('.slick3-dots li img')[0].src = '<c:url value="/resources/images/' + data.image + '"/>';
+							$('.wrap-pic-w.pos-relative img')[0].src = '<c:url value="/resources/images/' + data.image + '"/>';
+							$('.item-slick3.slick-current').attr('data-thumb','<c:url value="/resources/images/' + data.image + '"/>');
+							$('.wrap-pic-w.pos-relative a')[0].href = '<c:url value="/resources/images/' + data.image + '"/>';
+							$('.mtext-105.cl2.js-name-detail.p-b-14').text(data.product_name);
+							$('.mtext-106.cl2').text(data.price);
+							$('.stext-102.cl3.p-t-23').text(data.description);
+						},
+						error : function(e) {
+							console.log("ERROR: ", e);
+						}
+					});
+				}  
+	

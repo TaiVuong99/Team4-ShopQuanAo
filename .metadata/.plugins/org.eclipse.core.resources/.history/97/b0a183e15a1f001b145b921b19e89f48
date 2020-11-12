@@ -1,0 +1,8 @@
+package clothesshop.service;
+
+import clothesshop.model.Sizes;
+
+public interface SizesService {
+	public Sizes getAllSizes();
+
+}

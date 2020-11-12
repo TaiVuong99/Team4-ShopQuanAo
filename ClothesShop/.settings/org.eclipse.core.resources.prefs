@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/main/java/clothesshop/controller/LoginController.java=UTF-8
+encoding//src/main/java/clothesshop/dao/CustomersDAOImpl.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/shared/header.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/shared/login.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/shop.jsp=UTF-8

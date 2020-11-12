@@ -1,0 +1,18 @@
+package clothesshop.service;
+
+import clothesshop.DTO.LoginCustomerDTO;
+import clothesshop.dao.CustomersDAO;
+
+public class CustomersServiceImpl implements CustomersService{
+	private CustomersDAO customersDAO;
+	
+	public void setCustomersDAO(CustomersDAO customersDAO) {
+		this.customersDAO = customersDAO;
+	}
+
+	@Override
+	public LoginCustomerDTO checkCustomer(String username, String password) {
+		return customersDAO.checkCustomer(username, password);
+	}
+
+}

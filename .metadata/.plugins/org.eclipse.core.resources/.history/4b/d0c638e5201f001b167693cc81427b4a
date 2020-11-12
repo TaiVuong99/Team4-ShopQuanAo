@@ -1,0 +1,70 @@
+package clothesshop.controller;
+
+import java.util.List;
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+
+import clothesshop.model.Categories;
+import clothesshop.model.Products;
+import clothesshop.service.CategoriesService;
+import clothesshop.service.ProductsService;
+
+@Controller
+public class ShopController {
+	private ProductsService productsService;
+	private CategoriesService categoriesService;
+
+	@Autowired(required = true)
+	@Qualifier(value = "productsService")
+	public void setProductsService(ProductsService productsService) {
+		this.productsService = productsService;
+	}
+	
+	@Autowired(required = true)
+	@Qualifier(value = "categoriesService")
+	public void setCategoriesService(CategoriesService categoriesService) {
+		this.categoriesService = categoriesService;
+	}
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String getShop(Model model, HttpServletRequest request) {
+		List<Products> list = productsService.getAllProducts();
+		List<Categories> cates = categoriesService.getCategories();
+		model.addAttribute("cates",cates);
+		model.addAttribute("list",list);
+		return "shop";
+	}
+	
+	@RequestMapping(value = "/getProductById", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String getProductById(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse reponse) {
+		Products product = productsService.getProductById(1);
+		System.out.println(product.getProduct_name());
+//		ObjectMapper mapper = new ObjectMapper();
+//		String ajaxResponse = "";
+//		try {
+//			ajaxResponse = mapper.writeValueAsString(product);
+//		} catch (JsonProcessingException e) {
+//			e.printStackTrace();
+//		}
+//		return ajaxResponse;
+		return product;
+	}
+}

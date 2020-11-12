@@ -1,0 +1,112 @@
+package clothesshop.model;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="bills")
+public class Bills {
+	@Id
+	@Column(name = "id")
+	private int id;
+	
+	@Column(name = "price")
+	private int price;
+	
+	@Column(name = "print_date")
+	private Date print_date;
+	
+	@Column(name= "location")
+	private String location;
+	
+	@Column(name= "coupon")
+	private int coupon;
+	
+	@Column(name = "ship_fee")
+	private int ship_fee;
+	
+	@Column(name = "city_id")
+	private int city_id;
+	
+	@Column(name = "cart_id")
+	private int cart_id;
+	
+	@Column(name = "cartdetails_id")
+	private int cartdetails_id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public Date getPrint_date() {
+		return print_date;
+	}
+
+	public void setPrint_date(Date print_date) {
+		this.print_date = print_date;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public int getCoupon() {
+		return coupon;
+	}
+
+	public void setCoupon(int coupon) {
+		this.coupon = coupon;
+	}
+	
+	public int getShip_fee() {
+		return ship_fee;
+	}
+
+	public void setShip_fee(int ship_fee) {
+		this.ship_fee = ship_fee;
+	}
+
+	public int getCity_id() {
+		return city_id;
+	}
+
+	public void setCity_id(int city_id) {
+		this.city_id = city_id;
+	}
+
+	public int getCart_id() {
+		return cart_id;
+	}
+
+	public void setCart_id(int cart_id) {
+		this.cart_id = cart_id;
+	}
+
+	public int getCartdetails_id() {
+		return cartdetails_id;
+	}
+
+	public void setCartdetails_id(int cartdetails_id) {
+		this.cartdetails_id = cartdetails_id;
+	}
+}

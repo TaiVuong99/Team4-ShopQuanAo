@@ -1,0 +1,7 @@
+package clothesshop.dao;
+
+import clothesshop.DTO.LoginCustomerJSON;
+
+public interface CustomersDAO {
+	public LoginCustomerJSON checkCustomer(String username, String password);
+}

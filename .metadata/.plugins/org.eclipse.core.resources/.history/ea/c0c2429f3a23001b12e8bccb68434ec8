@@ -1,0 +1,83 @@
+
+		$('.js-addwish-b2, .js-addwish-detail').on('click', function(e) {
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(
+				function() {
+					var nameProduct = $(this).parent().parent().find(
+							'.js-name-b2').html();
+					$(this).on('click', function() {
+						swal(nameProduct, "is added to wishlist !", "success");
+
+						$(this).addClass('js-addedwish-b2');
+						$(this).off('click');
+					});
+				});
+
+		$('.js-addwish-detail').each(
+				function() {
+					var nameProduct = $(this).parent().parent().parent().find(
+							'.js-name-detail').html();
+
+					$(this).on('click', function() {
+						swal(nameProduct, "is added to wishlist !", "success");
+
+						$(this).addClass('js-addedwish-detail');
+						$(this).off('click');
+					});
+				});
+
+		/*---------------------------------------------*/
+
+		$('.js-addcart-detail').each(
+				function() {
+					var nameProduct = $(this).parent().parent().parent()
+							.parent().find('.js-name-detail').html();
+					$(this).on('click', function() {
+						swal(nameProduct, "is added to cart !", "success");
+					});
+				});
+				
+		/*---------------------------------------------*/
+	
+		$('.js-pscroll').each(function() {
+			$(this).css('position', 'relative');
+			$(this).css('overflow', 'hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed : 1,
+				scrollingThreshold : 1000,
+				wheelPropagation : false,
+			});
+
+			$(window).on('resize', function() {
+				ps.update();
+			})
+		});
+		
+				
+		function showModal(a) {
+					$.ajax({
+						type : "GET",
+						contentType : "application/json",
+						url : "getProductById",
+						data : {
+							id : a
+						},
+						dataType : 'json',
+						timeout : 100000,
+						success : function(data) {
+							$('.js-modal1').addClass('show-modal1');
+							$('.slick3-dots li img')[0].src = '<c:url value="/resources/images/' + data.image + '"/>';
+							$('.wrap-pic-w.pos-relative img')[0].src = '<c:url value="/resources/images/' + data.image + '"/>';
+							$('.item-slick3.slick-current').attr('data-thumb','<c:url value="/resources/images/' + data.image + '"/>');
+							$('.wrap-pic-w.pos-relative a')[0].href = '<c:url value="/resources/images/' + data.image + '"/>';
+							$('.mtext-105.cl2.js-name-detail.p-b-14').text(data.product_name);
+							$('.mtext-106.cl2').text(data.price);
+							$('.stext-102.cl3.p-t-23').text(data.description);
+						},
+						error : function(e) {
+							console.log("ERROR: ", e);
+						}
+					});
+				} 

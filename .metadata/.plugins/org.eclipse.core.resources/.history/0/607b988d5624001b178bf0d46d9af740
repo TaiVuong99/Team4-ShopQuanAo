@@ -1,0 +1,32 @@
+package clothesshop.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class AccountController {
+	
+	@RequestMapping(value="/getAccountView", method=RequestMethod.GET)
+	@ResponseBody
+	public String getAccountView(Model model) {
+		return "account";
+	}
+	
+	@RequestMapping(value="/requestAccount", method=RequestMethod.GET, produces = "text/plain;charset=UTF-8")
+	@ResponseBody
+	public String requestAccount(HttpServletRequest request, HttpSession session) {
+		session = request.getSession();
+		if(session.getAttribute("id") == null) {
+			session.invalidate();
+			return "Error";
+		}
+		return "getAccountView";
+	}
+}

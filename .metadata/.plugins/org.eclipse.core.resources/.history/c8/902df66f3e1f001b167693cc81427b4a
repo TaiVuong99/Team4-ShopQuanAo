@@ -1,0 +1,14 @@
+package clothesshop.service;
+
+import clothesshop.dao.SizesDAO;
+import clothesshop.model.Sizes;
+
+public class SizesServiceImpl implements SizesService{
+	private SizesDAO sizesDAO;
+	
+	@Override
+	public Sizes getAllSizes() {
+		return null;
+	}
+
+}

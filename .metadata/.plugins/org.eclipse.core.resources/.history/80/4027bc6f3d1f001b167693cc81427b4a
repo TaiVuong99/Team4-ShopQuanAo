@@ -1,0 +1,8 @@
+//		ObjectMapper mapper = new ObjectMapper();
+//		String ajaxResponse = "";
+//		try {
+//			ajaxResponse = mapper.writeValueAsString(product);
+//		} catch (JsonProcessingException e) {
+//			e.printStackTrace();
+//		}
+//		return ajaxResponse;

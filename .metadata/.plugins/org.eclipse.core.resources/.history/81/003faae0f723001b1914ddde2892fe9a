@@ -1,0 +1,50 @@
+package clothesshop.model;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="bills")
+public class Bills {
+	@Id
+	@Column(name = "id")
+	private int id;
+	
+	@Column(name = "subtotal")
+	private int subtotal;
+	
+	@Column(name = "total")
+	private Date total;
+	
+	@Column(name= "timing")
+	private Date timing;
+	
+	@Column(name= "address")
+	private String address;
+	
+	@Column(name = "ship_fee")
+	private int ship_fee;
+	
+	@Column(name="coupon")
+	private int coupon;
+	
+	@Column(name="customer_id")
+	private int customer_id;
+	
+	@Column(name = "cart_id")
+	private int cart_id;
+	
+	@Column(name = "city_id")
+	private int city_id;
+	
+	@Column(name = "district_id")
+	private int district_id;
+	
+	@Column(name="status")
+	private int status;
+	
+}

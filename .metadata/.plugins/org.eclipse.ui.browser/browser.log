@@ -1,0 +1,76 @@
+
+Nov 04, 2020 12:24:43.332 NEW SESSION
+Nov 04, 2020 12:24:43.333 [6776:14028:1104/122443.329:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+Nov 04, 2020 12:24:43.392 [6776:14028:1104/122443.330:ERROR:cache_util.cc(140)] Unable to move cache folder C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+Nov 04, 2020 12:24:43.565 [6776:14028:1104/122443.330:ERROR:disk_cache.cc(184)] Unable to create cache
+Nov 04, 2020 12:24:43.587 [6776:14028:1104/122443.330:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+Nov 04, 2020 12:26:15.442 [11400:12400:1104/122615.441:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+Nov 04, 2020 12:26:15.457 [11400:12400:1104/122615.441:ERROR:cache_util.cc(140)] Unable to move cache folder C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+Nov 04, 2020 12:26:15.530 [11400:12400:1104/122615.441:ERROR:disk_cache.cc(184)] Unable to create cache
+Nov 04, 2020 12:26:15.605 [11400:12400:1104/122615.441:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+
+Nov 04, 2020 14:35:52.817 NEW SESSION
+Nov 04, 2020 14:35:52.817 [7932:3284:1104/143552.681:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+Nov 04, 2020 14:35:53.566 [7932:3284:1104/143552.683:ERROR:cache_util.cc(140)] Unable to move cache folder C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+Nov 04, 2020 14:35:53.587 [7932:3284:1104/143552.683:ERROR:disk_cache.cc(184)] Unable to create cache
+Nov 04, 2020 14:35:53.791 [7932:3284:1104/143552.683:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+
+Nov 04, 2020 15:15:13.515 NEW SESSION
+Nov 04, 2020 15:15:13.515 [11816:12864:1104/151513.452:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+Nov 04, 2020 15:15:13.542 [11816:12864:1104/151513.454:ERROR:cache_util.cc(140)] Unable to move cache folder C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+Nov 04, 2020 15:15:13.555 [11816:12864:1104/151513.454:ERROR:disk_cache.cc(184)] Unable to create cache
+Nov 04, 2020 15:15:13.561 [11816:12864:1104/151513.454:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+Nov 04, 2020 15:17:28.90 [6356:8424:1104/151728.089:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+Nov 04, 2020 15:17:28.109 [6356:8424:1104/151728.090:ERROR:cache_util.cc(140)] Unable to move cache folder C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+Nov 04, 2020 15:17:28.330 [6356:8424:1104/151728.090:ERROR:disk_cache.cc(184)] Unable to create cache
+Nov 04, 2020 15:17:28.344 [6356:8424:1104/151728.090:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+
+Nov 04, 2020 15:59:10.868 NEW SESSION
+Nov 04, 2020 15:59:10.869 [14032:8384:1104/155910.833:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+Nov 04, 2020 15:59:11.78 [14032:8384:1104/155910.834:ERROR:cache_util.cc(140)] Unable to move cache folder C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+Nov 04, 2020 15:59:11.101 [14032:8384:1104/155910.834:ERROR:disk_cache.cc(184)] Unable to create cache
+Nov 04, 2020 15:59:11.131 [14032:8384:1104/155910.835:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+Nov 04, 2020 17:12:30.200 [2144:9052:1104/171230.164:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+Nov 04, 2020 17:12:31.341 [2144:9052:1104/171230.189:ERROR:cache_util.cc(140)] Unable to move cache folder C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\User_Pro\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+Nov 04, 2020 17:12:31.466 [2144:9052:1104/171230.189:ERROR:disk_cache.cc(184)] Unable to create cache
+Nov 04, 2020 17:12:31.485 [2144:9052:1104/171230.189:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+
+Nov 06, 2020 15:06:18.07 NEW SESSION
+Nov 06, 2020 15:06:18.08 [1106/150617.965:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+
+Nov 07, 2020 10:48:42.51 NEW SESSION
+Nov 07, 2020 10:48:42.51 [1107/104841.900:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+Nov 07, 2020 12:53:35.853 [1107/125335.849:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+
+Nov 07, 2020 20:32:50.787 NEW SESSION
+Nov 07, 2020 20:32:50.787 [1107/203250.744:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+Nov 07, 2020 20:38:57.892 [9904:7560:1107/203857.892:ERROR:socket_stream.cc(219)] Closing stream with result -2
+
+Nov 09, 2020 21:51:27.851 NEW SESSION
+Nov 09, 2020 21:51:27.851 [1109/215127.780:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+Nov 10, 2020 02:06:28.87 [1110/020628.084:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+
+Nov 10, 2020 05:59:09.861 NEW SESSION
+Nov 10, 2020 05:59:09.861 [1110/055909.800:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+
+Nov 10, 2020 14:02:19.830 NEW SESSION
+Nov 10, 2020 14:02:19.830 [1110/140219.747:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+
+Nov 10, 2020 15:51:22.266 NEW SESSION
+Nov 10, 2020 15:51:22.273 [1110/155122.206:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+Nov 10, 2020 16:29:41.79 [1110/162941.062:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+Nov 10, 2020 16:59:18.23 [1110/165918.019:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+Nov 10, 2020 17:14:50.869 [1110/171450.868:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+
+Nov 12, 2020 24:37:03.439 NEW SESSION
+Nov 12, 2020 24:37:03.440 [1112/003703.385:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+Nov 12, 2020 01:07:09.818 [1112/010709.816:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+Nov 12, 2020 01:48:31.888 [1112/014831.874:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+Nov 12, 2020 02:14:06.662 [1112/021406.629:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+
+Nov 12, 2020 03:09:59.164 NEW SESSION
+Nov 12, 2020 03:09:59.164 [1112/030959.161:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+
+Nov 12, 2020 10:45:34.379 NEW SESSION
+Nov 12, 2020 10:45:34.380 [1112/104534.320:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+Nov 12, 2020 11:44:10.474 [1112/114410.459:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

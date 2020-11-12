@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="login.js"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="login.js"/>
+			<item value="product.js"/>
+			<item value="wrap-modal1 js-modal1 p-t-60 p-b-20"/>
+			<item value="&lt;!--"/>
+			<item value="Modal1"/>
+			<item value="modal1"/>
+			<item value="modal"/>
+			<item value="data-dismiss"/>
+			<item value="data-dissmiss"/>
+			<item value="popper"/>
+			<item value="popper.js.map"/>
+			<item value="popprt"/>
+			<item value="login-action-div"/>
+			<item value="login"/>
+			<item value="showModal"/>
+		</list>
+		<list key="replacehistory">
+			<item value="username"/>
+			<item value=""/>
+			<item value="async"/>
+			<item value=".js&quot;/&gt;&quot; defer"/>
+			<item value=".js&quot;/&gt;&quot; defer&gt;"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="923"/>
+		<item key="DIALOG_Y_ORIGIN" value="277"/>
+		<item key="DIALOG_WIDTH" value="284"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="452"/>
+		<item key="DIALOG_Y_ORIGIN" value="247"/>
+	</section>
+</section>

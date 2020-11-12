@@ -1,0 +1,7 @@
+package clothesshop.service;
+
+import clothesshop.json.LoginCustomerJSON;
+
+public interface CustomersService {
+	public LoginCustomerJSON checkCustomer(String username, String password);
+}

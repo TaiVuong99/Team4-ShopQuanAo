@@ -1,0 +1,22 @@
+package clothesshop.dao;
+
+import org.hibernate.SessionFactory;
+
+import clothesshop.model.Customers;
+
+public class CustomersDAOImpl implements CustomersDAO{
+	SessionFactory sessionFactory;
+	
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+
+	@Override
+	public Customers checkCustomer(String username, String password) {
+		
+		return null;
+	}
+
+}

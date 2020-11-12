@@ -1,0 +1,19 @@
+package clothesshop.service;
+
+import clothesshop.dao.CustomersDAO;
+import clothesshop.json.LoginCustomerJSON;
+import clothesshop.model.Customers;
+
+public class CustomersServiceImpl implements CustomersService{
+	private CustomersDAO customersDAO;
+	
+	public void setCustomersDAO(CustomersDAO customersDAO) {
+		this.customersDAO = customersDAO;
+	}
+
+	@Override
+	public LoginCustomerJSON checkCustomer(String username, String password) {
+		return customersDAO.checkCustomer(username, password);
+	}
+
+}

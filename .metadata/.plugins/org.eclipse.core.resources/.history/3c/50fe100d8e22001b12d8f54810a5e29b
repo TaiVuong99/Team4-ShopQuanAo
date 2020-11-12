@@ -1,0 +1,7 @@
+package clothesshop.dao;
+
+import clothesshop.model.Customers;
+
+public interface CustomersDAO {
+	public Customers checkCustomer(String username, String password);
+}

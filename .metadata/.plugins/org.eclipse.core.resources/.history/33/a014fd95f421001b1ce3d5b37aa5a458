@@ -1,0 +1,35 @@
+package clothesshop.dao;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import clothesshop.model.Customers;
+
+public class CustomersDAOImpl implements CustomersDAO{
+	private SessionFactory sessionFactory;
+	
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+
+	@Override
+	public Customers checkCustomer(String username, String password) {
+		Session session = sessionFactory.openSession();
+		String hql = "FROM Customers C WHERE C.username = :username";
+		Query query = session.createQuery(hql);
+		query.setParameter("username",username);
+		Customers customer = (Customers) query.uniqueResult();
+		session.close();
+		if(customer==null) customer = new Customers();
+		else {
+			System.out.println(password);
+			System.out.println(customer.getPass_word());
+			if(password!=customer.getPass_word()) customer.setPass_word("");
+		}
+		return customer;
+	}
+
+}

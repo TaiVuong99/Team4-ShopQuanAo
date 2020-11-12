@@ -1,0 +1,13 @@
+package clothesshop.dao;
+
+import clothesshop.model.Customers;
+
+public class CustomersDAOImpl implements CustomersDAO{
+
+	@Override
+	public Customers checkCustomer(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

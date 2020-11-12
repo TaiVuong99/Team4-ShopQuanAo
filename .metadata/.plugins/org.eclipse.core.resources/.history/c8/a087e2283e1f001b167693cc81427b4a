@@ -1,0 +1,12 @@
+package clothesshop.dao;
+
+import clothesshop.model.Sizes;
+
+public class SizesDAOImpl implements SizesDAO{
+
+	@Override
+	public Sizes getAllSizes() {
+		return null;
+	}
+
+}

@@ -1,0 +1,15 @@
+package clothesshop.dao;
+
+import org.hibernate.SessionFactory;
+
+import clothesshop.model.Sizes;
+
+public class SizesDAOImpl implements SizesDAO{
+	SessionFactory sessionFactory;
+	
+	@Override
+	public Sizes getAllSizes() {
+		return null;
+	}
+
+}

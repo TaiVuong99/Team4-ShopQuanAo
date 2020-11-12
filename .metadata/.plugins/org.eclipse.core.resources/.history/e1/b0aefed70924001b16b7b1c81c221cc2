@@ -1,0 +1,57 @@
+// set required text
+$('form input').on('change invalid', function() {
+	var textfield = $(this).get(0);
+    
+	//setCustomValidity not only sets the message, but also marks the field as invalid.
+	//In order to see whether the field really is invalid, we have to remove the message first
+		
+    textfield.setCustomValidity('');
+    if (!textfield.validity.valid) {
+      textfield.setCustomValidity('Vui lòng điền vào trường này');  
+    }
+});
+	
+$("#form-login").submit(function(e) {
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+    var form = $(this);
+    var url = form.attr('action');
+    $.ajax({
+        type: form.attr('method'),
+		contentType : "application/json",
+        url: url,
+        data: form.serialize(), // serializes the form's elements.
+		dataType : 'json',
+        success: function(data) {
+			alert(data.response);
+			if(data.status==2) {
+				$("#login-action-div").html("<a href='javascript:logOut();' class='flex-c-m trans-04 p-lr-25'> Đăng xuất </a>");
+				$("#login-header-user").html("<div>TÀI KHOẢN: <b><i>" + data.username + "</i></b></div>");
+				$('#modalLRForm').modal('hide');
+				$('#modalLRForm').on('hidden.bs.modal', function (e) {
+					$('body').removeClass('modal-open');
+					$('.modal-backdrop').remove();
+					$('#form-login').trigger('reset');
+				})
+			}
+       	},
+		error : function(e) {
+			console.log("ERROR: ", e);
+		}
+    });
+});
+					
+function logOut() {
+	$.ajax({	
+		type : "GET",
+		url : "requestlogout",
+		success : function() {
+			$("#login-action-div").html("<a href='' class='flex-c-m trans-04 p-lr-25' data-toggle='modal' data-target='#modalLRForm'> Đăng nhập </a>");
+			$("#login-header-user").html("");
+			alert("Đã đăng xuất");
+		},
+		error : function(e) {
+		console.log("ERROR: ", e);
+		}
+	});
+}
+					

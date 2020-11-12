@@ -1,0 +1,12 @@
+package clothesshop.service;
+
+import clothesshop.model.Sizes;
+
+public class SizesServiceImpl implements SizesService{
+
+	@Override
+	public Sizes getAllSizes() {
+		return null;
+	}
+
+}

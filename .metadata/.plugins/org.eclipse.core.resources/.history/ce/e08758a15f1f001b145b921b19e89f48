@@ -1,0 +1,15 @@
+package clothesshop.dao;
+
+import java.util.List;
+
+import clothesshop.model.Colors;
+
+public class ColorsDAOImpl implements ColorsDAO {
+
+	@Override
+	public List<Colors> getAllColors() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

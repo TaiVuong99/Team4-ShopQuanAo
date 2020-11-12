@@ -1,0 +1,22 @@
+package clothesshop.dao;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+
+import clothesshop.model.Colors;
+
+public class ColorsDAOImpl implements ColorsDAO {
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+	@Override
+	public List<Colors> getAllColors() {
+		
+		return null;
+	}
+
+}

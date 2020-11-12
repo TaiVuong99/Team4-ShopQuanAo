@@ -1,0 +1,7 @@
+package clothesshop.dao;
+
+import clothesshop.model.Sizes;
+
+public interface SizesDAO {
+	public Sizes getAllSizes();
+}
