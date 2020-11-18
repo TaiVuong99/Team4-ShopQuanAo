@@ -5,24 +5,156 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="shared/head.jsp"%>
 		
-<title>Sản phẩm</title>
+<title>Trang chủ</title>
 <body class="animsition important">
 
 	<%@include file="shared/header.jsp"%>
 	<%@include file="shared/minicart.jsp"%>
+	
+	<section class="section-slide">
+		<div class="wrap-slick1 rs2-slick1">
+			<div class="slick1">
+				<div class="item-slick1 bg-overlay1" 
+				style="background-image: url(<c:url value="/resources/images/slide-05.jpg"/>)" 
+				data-thumb="<c:url value='/resources/images/thumb-01.jpg'/>" data-caption="">
+					<div class="container h-full">
+						<div class="flex-col-c-m h-full p-t-100 p-b-60 respon5">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+								<span class="ltext-202 txt-center cl0 respon2">
+									Bộ Sưu Tập Nữ Ấn Tượng
+								</span>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
+								<h2 class="ltext-104 txt-center cl0 p-t-22 p-b-40 respon1">
+									XU THẾ THỜI TRANG
+								</h2>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
+								<a href="shop" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+									MUA NGAY
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 
-	<div class="bg0 m-t-23 p-b-140">
+				<div class="item-slick1 bg-overlay1" 
+				style="background-image: url(<c:url value="/resources/images/slide-06.jpg"/>)" 
+				data-thumb="<c:url value='/resources/images/thumb-02.jpg'/>" data-caption="">
+					<div class="container h-full">
+						<div class="flex-col-c-m h-full p-t-100 p-b-60 respon5">
+							<div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
+								<span class="ltext-202 txt-center cl0 respon2">
+									Áo Nam Độc Lạ
+								</span>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="800">
+								<h2 class="ltext-104 txt-center cl0 p-t-22 p-b-40 respon1">
+									NÉT RIÊNG ĐỘC NHẤT
+								</h2>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
+								<a href="shop" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+									MUA NGAY
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-slick1 bg-overlay1" 
+				style="background-image: url(<c:url value="/resources/images/slide-07.jpg"/>)" 
+				data-thumb="<c:url value='/resources/images/thumb-03.jpg'/>" data-caption="">
+					<div class="container h-full">
+						<div class="flex-col-c-m h-full p-t-100 p-b-60 respon5">
+							<div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
+								<span class="ltext-202 txt-center cl0 respon2">
+									Đa Dạng Mẫu Mã
+								</span>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="800">
+								<h2 class="ltext-104 txt-center cl0 p-t-22 p-b-40 respon1">
+									ĐƯỢC ƯA CHUỘNG
+								</h2>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1600">
+								<a href="shop" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+									MUA NGAY
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="wrap-slick1-dots p-lr-10"></div>
+		</div>
+	</section>
+
+	<div class="sec-banner bg0 p-t-95 p-b-55">
 		<div class="container">
+			<div class="row">
+				<div class="col-md-6 p-b-30 m-lr-auto">
+					<!-- Block1 -->
+					<div class="block1 wrap-pic-w">
+						<img src="<c:url value="/resources/images/banner-04.jpg" />" alt="IMG-BANNER">
+						<a href="" id= "cate_1" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3 btn-cate">
+							<div class="block1-txt-child1 flex-col-l">
+								<span class="block1-name ltext-102 trans-04 p-b-8">Nữ</span>
+								<span class="block1-info stext-102 trans-04">Độc Đáo</span>
+							</div>
+							<div class="block1-txt-child2 p-b-4 trans-05">
+								<div class="block1-link stext-101 cl0 trans-09">Mua Ngay</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-md-6 p-b-30 m-lr-auto">
+					<div class="block1 wrap-pic-w">
+						<img src="<c:url value="/resources/images/banner-05.jpg" />" alt="IMG-BANNER">
+						<a href="" id= "cate_0" 
+						class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3 btn-cate">
+							<div class="block1-txt-child1 flex-col-l">
+								<span class="block1-name ltext-102 trans-04 p-b-8">Nam</span>
+								<span class="block1-info stext-102 trans-04">Mới Lạ</span>
+							</div>
+							<div class="block1-txt-child2 p-b-4 trans-05">
+								<div class="block1-link stext-101 cl0 trans-09">Mua Ngay</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section class="bg0 p-t-23 p-b-130">
+		<div class="container">
+			<div class="p-b-10">
+				<h3 class="ltext-103 cl5">
+					Xem Trước
+				</h3>
+			</div>
+
 			<div class="flex-w flex-sb-m p-b-52">
 				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
-					<a href="shop"><button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">Tất cả</button></a>
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">Tất cả</button>
 					<c:forEach items="${cates}" var="cate">
 						<button type="button" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 btn-cate"
 							data-filter=".women" 
 							id="cate_${cate.id}">${cate.cate_name}</button>
 					</c:forEach>
 				</div>
-			<%@include file="shared/filter.jsp"%>
+				
+			<%@include file="shared/filter.jsp" %>
+			
 			</div>
 			
 			<script type="text/javascript">
@@ -51,37 +183,11 @@
 							console.log("ERROR: ", e);
 						}
 					});
-				} 
-				
-				function addStuffPre(product_id, price, elm) {
-					var obj = {product_id : product_id, price: price, quantity : 1, description : "M-Trắng"};
-					$.ajax({
-						type: "POST",
-						url: "addStuffIntoCart",
-						contentType : "application/json; charset=utf-8",
-						data : JSON.stringify(obj),
-						dataType: "text",
-						success : function(data) {
-							if(data=="Error") $('#modalLRForm').modal('show');
-							else {
-								if(data=="FailtoAdd") swal(data,"!", "error");
-								else {
-									var nameProduct = $(elm).parent().parent().find('.js-name-b2').html();
-									$(elm).addClass('js-addedwish-b2');
-									swal(nameProduct, "Đã thêm vào giỏ ! \n (Kích cỡ - Màu sắc mặc định)", "success");
-								}
-							}
-						},
-						error : function(e) {
-							console.log("ERROR: ", e);
-						}
-					});
-					return false;
 				}
 			</script>
 			
 			<div class="row isotope-grid">
-				<c:forEach items="${list}" var="stuff">
+			<c:forEach items="${list}" var="stuff">
 					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women" id="${stuff.id}">
 						
 						<div class="block2">
@@ -129,15 +235,10 @@
 							</div>
 						</div>
 					</div>
-				</c:forEach>
-			</div>
-
-			
-			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04"> Load More </a>
-			</div>
+			</c:forEach>
 		</div>
-	</div>
+		</div>
+	</section>
 	
 	<%@include file="core/productmodal.jsp" %>
 	<%@include file="shared/footer.jsp"%>
@@ -148,10 +249,10 @@
 	<script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.min.js"/>"></script>
 	<script src="<c:url value="/resources/vendor/select2/select2.min.js"/>"></script>
 	<script>
-		$(".js-select2").each(function() {
+		$(".js-select2").each(function(){
 			$(this).select2({
-				minimumResultsForSearch : 20,
-				dropdownParent : $(this).next('.dropDownSelect2')
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
 			});
 		})
 	</script>
@@ -165,19 +266,20 @@
 	<script>
 		$('.gallery-lb').each(function() { // the containers for all your galleries
 			$(this).magnificPopup({
-				delegate : 'a', // the selector for gallery item
-				type : 'image',
-				gallery : {
-					enabled : true
-				},
-				mainClass : 'mfp-fade'
-			});
+		        delegate: 'a', // the selector for gallery item
+		        type: 'image',
+		        gallery: {
+		        	enabled:true
+		        },
+		        mainClass: 'mfp-fade'
+		    });
 		});
 	</script>
 	<script src="<c:url value="/resources/vendor/isotope/isotope.pkgd.min.js"/>"></script>
 	<script src="<c:url value="/resources/vendor/sweetalert/sweetalert.min.js"/>"></script>
 	<script src="<c:url value="/resources/vendor/perfect-scrollbar/perfect-scrollbar.min.js"/>"></script>
-	<%-- <script src="<c:url value="/resources/js/product.js"/>"></script> --%>
+	<script src="<c:url value="/resources/js/product.js"/>"></script>
 	<script src="<c:url value="/resources/js/main.js"/>"></script>
+
 </body>
 </html>

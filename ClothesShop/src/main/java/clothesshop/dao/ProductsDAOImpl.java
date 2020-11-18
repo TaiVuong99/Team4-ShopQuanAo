@@ -15,6 +15,7 @@ public class ProductsDAOImpl implements ProductsDAO{
 		this.sessionFactory = sessionFactory;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Products> getAllProducts() {
 		Session session = sessionFactory.openSession();
@@ -34,5 +35,25 @@ public class ProductsDAOImpl implements ProductsDAO{
 		session.close();
 		return product;
 	}
-	
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Products> getListProductsByCate(int id) {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from Products where cate_id = :id");
+		query.setParameter("id", id);
+		List<Products> result = query.list();
+		session.close();
+		return result;
+	}
+
+	@Override
+	public List<Products> getListProductsforIndex() {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from Products");
+		query.setMaxResults(8);
+		List<Products> result = query.list();
+		session.close();
+		return result;
+	}
 }

@@ -15,6 +15,7 @@ public class ColorsDAOImpl implements ColorsDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Colors> getAllColors() {
 		Session session = sessionFactory.openSession();
@@ -23,5 +24,4 @@ public class ColorsDAOImpl implements ColorsDAO {
 		session.close();
 		return result;
 	}
-
 }

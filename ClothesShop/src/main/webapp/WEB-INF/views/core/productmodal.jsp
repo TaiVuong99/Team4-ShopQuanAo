@@ -1,3 +1,5 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
 	<div class="overlay-modal1 js-hide-modal1"></div>
 
@@ -23,17 +25,17 @@
 										</a>
 									</div>
 								</div>
-
-								<div class="item-slick3" data-thumb="<c:url value="/resources/images/product-detail-02.jpg"/>">
+								
+								<%-- <div class="item-slick3" data-thumb="<c:url value="/resources/images/product-detail-02.jpg"/>">
 										<div class="wrap-pic-w pos-relative">
 											<img src="<c:url value="/resources/images/product-detail-02.jpg"/>" alt="IMG-PRODUCT">
 												<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="<c:url value="/resources/images/product-detail-02.jpg"/>">
 													<i class="fa fa-expand"></i>
 												</a>
 										</div>
-								</div>
+								</div> --%>
 
-									<div class="item-slick3"
+								<%-- 	<div class="item-slick3"
 										data-thumb="<c:url value="/resources/images/product-detail-03.jpg"/>">
 										<div class="wrap-pic-w pos-relative">
 											<img
@@ -44,7 +46,7 @@
 												<i class="fa fa-expand"></i>
 											</a>
 										</div>
-									</div>
+									</div> --%>
 								</div>
 							</div>
 						</div>
@@ -64,13 +66,15 @@
 							<div class="p-t-33">
 								<div class="flex-w flex-r-m p-b-10">
 									<div class="size-203 flex-c-m respon6">Size</div>
-
+									
+									<span style="display : none;" id="detail_id"></span>
+									
 									<div class="size-204 respon6-next">
 										<div class="rs1-select2 bor8 bg0">
-											<select class="js-select2" name="time">
+											<select class="js-select2" name="time" id="size_detail_drop">
 												<option>Choose an option</option>
 												<c:forEach items="${sizes}" var="size">
-													<option>${size.size_name}</option>
+													<option id="detail_size_${size.id}">${size.size_name}</option>
 												</c:forEach>
 											</select>
 											<div class="dropDownSelect2"></div>
@@ -83,10 +87,10 @@
 
 									<div class="size-204 respon6-next">
 										<div class="rs1-select2 bor8 bg0">
-											<select class="js-select2" name="time">
+											<select class="js-select2" name="time" id="color_detail_drop">
 												<option>Choose an option</option>
 												<c:forEach items="${colors}" var="color">
-													<option>${color.color_name}</option>
+													<option id="detail_color_${color.id}">${color.color_name}</option>
 												</c:forEach>
 											</select>
 											<div class="dropDownSelect2"></div>
@@ -102,7 +106,7 @@
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
 
-											<input class="mtext-104 cl3 txt-center num-product"
+											<input class="mtext-104 cl3 txt-center num-product" id="detail_quantity"
 												type="number" name="num-product" value="1">
 
 											<div
@@ -112,8 +116,9 @@
 										</div>
 
 										<button
-											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-											Add to cart</button>
+											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail"
+											id="addStuffdetailBtn">
+											Thêm giỏ hàng</button>
 									</div>
 								</div>
 							</div>

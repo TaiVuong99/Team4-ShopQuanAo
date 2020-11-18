@@ -6,21 +6,21 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import clothesshop.model.Categories;
+import clothesshop.model.Cities;
 
-public class CategoriesDAOImpl implements CategoriesDAO{
+public class CitiesDAOImpl implements CitiesDAO{
 	private SessionFactory sessionFactory;
-
+	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Categories> getCategories() {
+	public List<Cities> getAllCities() {
 		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("from Categories");
-		List result = query.list();
+		Query query = session.createQuery("from Cities");
+		List<Cities> result = query.list();
 		session.close();
 		return result;
 	}

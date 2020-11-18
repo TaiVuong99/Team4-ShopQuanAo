@@ -1,6 +1,5 @@
 (function ($) {
     "use strict";
-
     /*[ Load page ]
     ===========================================================*/
     $(".animsition").animsition({
@@ -260,6 +259,20 @@
     });
     
     /*==================================================================*/
+	$('.js-pscroll').each(function(){
+		$(this).css('position','relative');
+		$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+			wheelSpeed: 1,
+			scrollingThreshold: 1000,
+			wheelPropagation: false,
+		});
+		$(window).on('resize', function(){
+			ps.update();
+		})
+	});
+	
+	/*==================================================================*/
     $('.js-hide-modal1').on('click',function(){
         $('.js-modal1').removeClass('show-modal1');
     });
@@ -268,40 +281,371 @@
 		$('body').removeClass('modal-open');
 		$('.modal-backdrop').remove();
 		$('#form-login').trigger('reset');
+		$('#form-signup').trigger('reset');
 		$("#hidden-request").val("");
 	});	
 	
-	// set required text
-	$('form input').on('change invalid', function() {
-		var textfield = $(this).get(0);
-    	textfield.setCustomValidity('');
+	$('#modalLRInput12').on('change invalid',function(){
+		var textfield = this;
+		textfield.setCustomValidity('');
 		if(!textfield.validity.valid) {
-			textfield.setCustomValidity('Vui lòng điền vào trường này');  
+			if(textfield.value == "") textfield.setCustomValidity('Vui lòng nhập tên tài khoản');
+			else textfield.setCustomValidity('Tên tài khoản chưa hợp lệ');
+		}
+		else {
+			$.ajax({
+				type : "GET",
+				url : "checkUsername",
+				contentType : "application/json; charset=utf-8",
+				data : {
+					username : textfield.value
+				},
+				dataType: "text",
+				success : function(data){
+					if(data == "Exist") {
+						textfield.setCustomValidity('Tên tài khoản đã được dùng');
+					}
+				},
+				error : function(e) {
+					console.log("error: ", e);
+				}
+			});
 		}
 	});
+	
+	$('#modalLRInput13').on('change invalid',function(){
+		var textfield = this;
+		textfield.setCustomValidity('');
+		if(!textfield.validity.valid) {
+			if(textfield.value == "") textfield.setCustomValidity('Vui lòng nhập email');
+			else textfield.setCustomValidity('Email chưa hợp lệ');
+		}
+	});	
+	
+	$('#modalLRInput14').on('change invalid',function(){
+		var textfield = this;
+		textfield.setCustomValidity('');
+		if(!textfield.validity.valid) {
+			if(textfield.value == "") textfield.setCustomValidity('Vui lòng số điện thoại');
+			else textfield.setCustomValidity('Số điện thoại chưa hợp lệ');
+		}
+	});
+	
+	$('#modalLRInput15').on('change invalid',function(){
+		var textfield = this;
+		textfield.setCustomValidity('');
+		if(!textfield.validity.valid) {
+			if(textfield.value == "") textfield.setCustomValidity('Vui lòng nhập mật khẩu');
+			else textfield.setCustomValidity('Mật khẩu chưa hợp lệ');
+		}
+	});
+	
+	$('#modalLRInput16').on('change invalid',function(){
+		var textfield = this;
+		textfield.setCustomValidity('');
+		if(textfield.value == "") textfield.setCustomValidity('Vui lòng nhập lại mật khẩu');
+		else {
+			var pd = $('#modalLRInput15').val();
+			if(textfield.value != pd ) textfield.setCustomValidity('Nhập lại mật khẩu chưa chính xác');
+		}
+	});	
 	
 	$("#form-login").submit(function(e) {
     	e.preventDefault(); // avoid to execute the actual submit of the form.
     	var form = $(this);
+		var loginForm = form.serializeArray();
+		var loginFormObject = {};
 		var url = form.attr('action');
+		$.each(loginForm, function(i, v) {
+        	loginFormObject[v.name] = v.value;
+    	});
     	$.ajax({
         	type: form.attr('method'),
-			contentType : "application/json",
+			contentType : "application/json; charset=utf-8",
         	url: url,
-        	data: form.serialize(), // serializes the form's elements.
+        	data: JSON.stringify(loginFormObject), // serializes the form's elements.
 			dataType : 'json',
-        	success: function(data) {
-				alert(data.response);
-				if(data.status==2) {
+        	success: function(data){
+				if(data.status==2){
 					$("#login-action-div").html("<a href='javascript:logOut();' class='flex-c-m trans-04 p-lr-25'>Đăng xuất</a>");
 					$("#login-header-user").html("<div>TÀI KHOẢN: <b><i>" + data.username + "</i></b></div>");
+					var minicart = `<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+						<i class="zmdi zmdi-shopping-cart"></i></div>`
+					$("#login-header-user").append(minicart);
 					$('#modalLRForm').modal('hide');
-					if(data.request=="requestAccount") requestAccount();
+					swal({
+    					title: data.response,
+    					text: "",
+    					icon: "success"
+					}).then(function() { 
+						if(data.request=="requestAccount") requestAccount();
+						else {
+							if(data.request=="requestCart") requestCart();
+							else checkStuff();
+						}		
+					});	
+				}
+				else {
+					if(data.status==1) swal(data.response, "", "error");
+					else swal(data.response, "", "warning");
 				}
        		},
 			error : function(e) {
 				console.log("ERROR: ", e);
 			}
     	});
+	});
+	
+	$("#form-signup").submit(function(e) {
+    	e.preventDefault(); // avoid to execute the actual submit of the form.
+    	var form = $(this);
+		var loginForm = form.serializeArray();
+		var loginFormObject = {};
+		var url = form.attr('action');
+		$.each(loginForm, function(i, v) {
+        	loginFormObject[v.name] = v.value;
+    	});
+    	$.ajax({
+        	type: form.attr('method'),
+			contentType : "application/json; charset=utf-8",
+        	url: url,
+        	data: JSON.stringify(loginFormObject), // serializes the form's elements.
+			dataType : 'text',
+        	success: function(data){
+				if(data == "Success"){
+					swal({
+    					title: data,
+    					text: "",
+    					icon: "success"
+					}).then(function() { 
+						$("#nav-link-2").removeClass("active");
+						$("#panel8").removeClass("active show");
+						$("#nav-link-1").addClass("active");
+						$("#panel7").addClass("active show");
+						$('#form-signup').trigger('reset');
+					});	
+				}
+				else {
+					swal({
+    					title: "Lỗi đăng ký",
+    					text: "",
+    					icon: "error"
+					});
+				}
+       		},
+			error : function(e) {
+				console.log("ERROR: ", e);
+			}
+    	});
+	});
+	$("#addStuffdetailBtn").click(function(e) {
+		//var color_id= $('#color_detail_drop').find(":selected").attr('id');
+		//var size_id = $('#size_detail_drop').find(":selected").attr('id');
+		var size = $('#size_detail_drop').find(":selected").val();
+		var color = $('#color_detail_drop').find(":selected").val();
+		var description = size + "-" + color;
+		var id = $('#detail_id').text();
+		var price = $('.mtext-106.cl2').text();
+		var quantity = $('#detail_quantity').val();
+		if(color == "Choose an option" || size == "Choose an option") swal("Hãy chọn kích cỡ và màu sắc", "", "warning");
+		else {
+			var obj = {product_id : id, price: price, quantity : quantity, description : description};
+			$.ajax({
+				type: "POST",
+				url: "addStuffIntoCart",
+				contentType : "application/json; charset=utf-8",
+				data : JSON.stringify(obj),
+				dataType: "text",
+				success : function(data) {
+				if(data=="Error") $('#modalLRForm').modal('show');
+					else {
+						if(data=="FailtoAdd") swal(data,"!", "error");
+						else {
+							var nameProduct = $('.mtext-105.cl2.js-name-detail.p-b-14').text();
+							$('#addcartpre'+id).addClass('js-addedwish-b2');
+							swal(nameProduct, "Đã thêm vào giỏ !", "success");
+						}
+					}
+				},
+				error : function(e) {
+					console.log("ERROR: ", e);
+				}
+			});
+		}
+	});
+	/*	$(".stext-106.cl6.hov1.bor3.trans-04.m-r-32.m-tb-5.btn-cate").click(function(e) {
+			
+		});*/
+	$("#btn-bill-submit").click(function(e) {
+    	e.preventDefault();
+    	var city = $('#cities_drop').find(":selected").attr('id');
+		var district = $('#districts_drop').find(":selected").attr('id');
+		var address = $("#bill_address").val();
+		var note =  $("#note_text").val();
+		var subtotal = $('#sub_total').text();
+		var check = parseInt(subtotal);
+		if(check < 50) swal("Giá trị tạm tính tối thiểu phải là 50", "Hãy xem thêm nhiều sản phẩm nhé!", "warning");
+		else {
+			if(city == "city_require" || district == "district_require" || address == "") {
+				swal("Vui lòng nhập đầy đủ thông tin", "", "warning");
+			}
+			else {
+				swal({
+  					title: "Xác nhận đặt hàng",
+  					text: "Đơn hàng sẽ được xủ lý sau khi xác nhận",
+  					icon: "info",
+  					buttons: true,
+  					dangerMode: true,
+				}).then((willDelete) => {
+  					if(willDelete) {
+						city = city.substring(5);
+						district = district.substring(9);
+						var obj = {city : city, district : district, address : address, note : note, subtotal : subtotal};
+						$.ajax({
+							type: 'POST',
+							contentType : "application/json; charset=utf-8",
+        					url: 'solvebill',
+        					data: JSON.stringify(obj),
+							dataType : 'json',
+							success : function(data){
+								if(data!=-1) {
+									swal({
+    									title: "Đơn hàng đã được tiếp nhận",
+    									text: "Cám ơn bạn, hãy chờ shipper liên hệ nhé!",
+    									icon: "success"
+									}).then(function() { 
+										$("#myBtn").trigger("click");
+										$(".table-shopping-cart").find("tr:gt(0)").remove();
+										$('#sub_total').html('0');
+										$('#total_scope').html('0');
+										$('#coupon_scope').html('-'+data+'%');
+									});	
+								}
+								else swal("Lỗi hệ thống", "Báo cáo cho cửa hàng nếu có sự thay đổi đáng ngờ", "error");
+							},
+							error : function(e) {
+								console.log("error: ", e);
+							}
+						});
+  					}
+				});
+			}
+		}
+	});
+	
+	$('table').on("click",'.btn-num-product-up.cl8.hov-btn3.trans-04.flex-c-m.plus-after', function(){
+		var index = $('.btn-num-product-up.cl8.hov-btn3.trans-04.flex-c-m.plus-after').index(this);
+		var press = parseInt($('.mtext-104.cl3.txt-center.num-product').eq(index).val()) + 1;
+		var total = press * parseInt($(".table_row > .column-4").eq(index).text());
+		$('.mtext-104.cl3.txt-center.num-product').eq(index).val(press);
+		$(".table_row > .column-6").eq(index).text(total);
+	});
+	
+	$('table').on("click",'.btn-num-product-down.cl8.hov-btn3.trans-04.flex-c-m.minus-after', function(){
+		var index = $('.btn-num-product-down.cl8.hov-btn3.trans-04.flex-c-m.minus-after').index(this);
+		var press = parseInt($('.mtext-104.cl3.txt-center.num-product').eq(index).val()) - 1;
+		if(press<0) press = 0;
+		var total = press * parseInt($(".table_row > .column-4").eq(index).text());
+		$('.mtext-104.cl3.txt-center.num-product').eq(index).val(press);
+		$(".table_row > .column-6").eq(index).text(total);
+	});
+	
+	$('table').on("input",'.mtext-104.cl3.txt-center.num-product', function(){
+		var index = $('.mtext-104.cl3.txt-center.num-product').index(this);
+		var press = parseInt($('.mtext-104.cl3.txt-center.num-product').eq(index).val());
+		if(!$(this).val()) press = 0;
+		var total = press * parseInt($(".table_row > .column-4").eq(index).text());
+		$(".table_row > .column-6").eq(index).text(total);
+	});
+	
+	function checkStuff() {
+		var ID = [];
+		$(".isotope-item").each(function() { 
+        	if(this.id) ID.push(this.id);
+		});
+		$.ajax({
+			type : "POST",
+			url : "checkStuffexistOrNot",
+			contentType : "application/json; charset=utf-8",
+			data : JSON.stringify(ID),
+			dataType: "json",
+			success : function(data){
+				$.each(data, function(key,value) {
+					$("#"+value).addClass('js-addedwish-b2');
+				});
+			},
+			error : function(e) {
+				console.log("error: ", e);
+			}
+		});	
+	}
+	
+	$('#cities_drop').on("change", function(){
+		var id = $('#cities_drop').find(":selected").attr('id');
+		if(id != "city_require") {
+			var sub_id = id.substring(5);
+			$.ajax({
+				type : "GET",
+				url : "getdistrictsbyid",
+				contentType : "application/json; charset=utf-8",
+				data : {
+					id : sub_id
+				},	
+				dataType: "json",
+				success : function(data){
+					$('#districts_drop').html('');
+					var cities = '<option id="district_require">Chọn quận...</option>';
+					$('#districts_drop').append(cities);
+					$.each(data, function(i) {
+						cities ='<option id="district_'+data[i].id+'">'+data[i].district_name+"</option>";
+						$('#districts_drop').append(cities);
+					});
+				},
+				error : function(e) {
+					console.log("error: ", e);
+				}
+			});	
+		}
+	});
+	
+	$(".btn-cate").click(function(e) {
+		var id = e.target.id
+		id = id.substring(5);
+		$.ajax({
+			type : "GET",
+			url : "getshopcate",
+			contentType : "application/json; charset=utf-8",
+			data : {
+				id : id
+			},	
+			success : function(data){
+				window.location.href = data;
+			},
+			error : function(e) {
+					console.log("error: ", e);
+			}
+		});
+	});
+	
+	$(document).ready(function() {
+		$( ".btn-num-product-up.cl8.hov-btn3.trans-04.flex-c-m" ).click(function() {
+			var index = $('.btn-num-product-up.cl8.hov-btn3.trans-04.flex-c-m').index(this);
+			var press = parseInt($('.mtext-104.cl3.txt-center.num-product').eq(index).val());
+			var total = press * parseInt($(".table_row > .column-4").eq(index).text());
+			$(".table_row > .column-6").eq(index).text(total);
+		});
+		
+		$( ".btn-num-product-down.cl8.hov-btn3.trans-04.flex-c-m" ).click(function() {
+			var index = $('.btn-num-product-down.cl8.hov-btn3.trans-04.flex-c-m').index(this);
+			var press = parseInt($('.mtext-104.cl3.txt-center.num-product').eq(index).val());
+			var total = press * parseInt($(".table_row > .column-4").eq(index).text());
+			$(".table_row > .column-6").eq(index).text(total);
+		});
+		
+		$(".wrap-table-shopping-cart").siblings().css({
+    		'width': ($(".wrap-table-shopping-cart").width() + 2 + 'px')
+  		});
+
+  		if(window.location.pathname == '/ClothesShop/shop') checkStuff();
 	});
 })(jQuery);

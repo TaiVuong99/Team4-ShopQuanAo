@@ -22,4 +22,13 @@ public class ProductsServiceImpl implements ProductsService{
 		return productsDAO.getProductById(id);
 	}
 
+	@Override
+	public List<Products> getListProductsByCate(int id) {
+		return productsDAO.getListProductsByCate(id);
+	}
+
+	@Override
+	public List<Products> getListProductsforIndex() {
+		return productsDAO.getListProductsforIndex();
+	}
 }

@@ -18,7 +18,7 @@ public class Bills {
 	private int subtotal;
 	
 	@Column(name = "total")
-	private Date total;
+	private int total;
 	
 	@Column(name= "timing")
 	private Date timing;
@@ -26,14 +26,11 @@ public class Bills {
 	@Column(name= "address")
 	private String address;
 	
-	@Column(name = "ship_fee")
-	private int ship_fee;
+	@Column(name = "shipfee")
+	private int shipfee;
 	
 	@Column(name="coupon")
 	private int coupon;
-	
-	@Column(name="customer_id")
-	private int customer_id;
 	
 	@Column(name = "cart_id")
 	private int cart_id;
@@ -46,7 +43,10 @@ public class Bills {
 	
 	@Column(name="status")
 	private int status;
-
+	
+	@Column(name="note")
+	private String note;
+	
 	public int getId() {
 		return id;
 	}
@@ -63,11 +63,11 @@ public class Bills {
 		this.subtotal = subtotal;
 	}
 
-	public Date getTotal() {
+	public int getTotal() {
 		return total;
 	}
 
-	public void setTotal(Date total) {
+	public void setTotal(int total) {
 		this.total = total;
 	}
 
@@ -87,12 +87,12 @@ public class Bills {
 		this.address = address;
 	}
 
-	public int getShip_fee() {
-		return ship_fee;
+	public int getShipfee() {
+		return shipfee;
 	}
 
-	public void setShip_fee(int ship_fee) {
-		this.ship_fee = ship_fee;
+	public void setShipfee(int shipfee) {
+		this.shipfee = shipfee;
 	}
 
 	public int getCoupon() {
@@ -101,14 +101,6 @@ public class Bills {
 
 	public void setCoupon(int coupon) {
 		this.coupon = coupon;
-	}
-
-	public int getCustomer_id() {
-		return customer_id;
-	}
-
-	public void setCustomer_id(int customer_id) {
-		this.customer_id = customer_id;
 	}
 
 	public int getCart_id() {
@@ -141,5 +133,13 @@ public class Bills {
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
 	}
 }

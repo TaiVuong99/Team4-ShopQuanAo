@@ -2,7 +2,9 @@ package clothesshop.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.Id;
+
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +19,9 @@ public class Products {
 	
 	@Column(name="description")
 	private String description;
+	
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "products")
+//	private List<Cartdetails> cartdetails;
 	
 	@Column(name="image")
 	private String image;

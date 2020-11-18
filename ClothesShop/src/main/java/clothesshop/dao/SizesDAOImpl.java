@@ -6,7 +6,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import clothesshop.model.Colors;
 import clothesshop.model.Sizes;
 
 public class SizesDAOImpl implements SizesDAO{
@@ -16,6 +15,7 @@ public class SizesDAOImpl implements SizesDAO{
 		this.sessionFactory = sessionFactory;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Sizes> getAllSizes() {
 		Session session = sessionFactory.openSession();
@@ -24,5 +24,4 @@ public class SizesDAOImpl implements SizesDAO{
 		session.close();
 		return result;
 	}
-
 }

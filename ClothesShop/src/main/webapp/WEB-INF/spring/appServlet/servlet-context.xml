@@ -109,7 +109,52 @@
 	
 	 <beans:bean id="customersService" class="clothesshop.service.CustomersServiceImpl">
 		<beans:property name="customersDAO" ref="customersDAO"></beans:property>
+	</beans:bean>
+	
+	<!-- Carts -->
+	 <beans:bean id="cartsDAO" class="clothesshop.dao.CartsDAOImpl">
+		<beans:property name="sessionFactory" ref="sessionFactory" ></beans:property>
 	</beans:bean>  
+	
+	 <beans:bean id="cartsService" class="clothesshop.service.CartsServiceImpl">
+		<beans:property name="cartsDAO" ref="cartsDAO"></beans:property>
+	</beans:bean>  
+	
+	<!-- Cartdetails -->
+	 <beans:bean id="cartdetailsDAO" class="clothesshop.dao.CartdetailsDAOImpl">
+		<beans:property name="sessionFactory" ref="sessionFactory" ></beans:property>
+	</beans:bean>  
+	
+	 <beans:bean id="cartdetailsService" class="clothesshop.service.CartdetailsServiceImpl">
+		<beans:property name="cartdetailsDAO" ref="cartdetailsDAO"></beans:property>
+	</beans:bean> 
+	
+	<!-- Cities -->
+	 <beans:bean id="citiesDAO" class="clothesshop.dao.CitiesDAOImpl">
+		<beans:property name="sessionFactory" ref="sessionFactory" ></beans:property>
+	</beans:bean>  
+	
+	 <beans:bean id="citiesService" class="clothesshop.service.CitiesServiceImpl">
+		<beans:property name="citiesDAO" ref="citiesDAO"></beans:property>
+	</beans:bean>
+	
+	<!-- Districts -->
+	 <beans:bean id="districtsDAO" class="clothesshop.dao.DistrictsDAOImpl">
+		<beans:property name="sessionFactory" ref="sessionFactory" ></beans:property>
+	</beans:bean>  
+	
+	 <beans:bean id="districtsService" class="clothesshop.service.DistrictsServiceImpl">
+		<beans:property name="districtsDAO" ref="districtsDAO"></beans:property>
+	</beans:bean>
+	
+	<!-- Bills -->
+	 <beans:bean id="billsDAO" class="clothesshop.dao.BillsDAOImpl">
+		<beans:property name="sessionFactory" ref="sessionFactory" ></beans:property>
+	</beans:bean>  
+	
+	 <beans:bean id="billsService" class="clothesshop.service.BillsServiceImpl">
+		<beans:property name="billsDAO" ref="billsDAO"></beans:property>
+	</beans:bean>
 	
 	<context:component-scan base-package="clothesshop.controller" />
 	
